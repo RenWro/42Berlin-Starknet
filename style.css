@@ -1,13 +1,14 @@
-body {
+:root {
   --bg-color-light: #ffffff;
   --bg-color-dark: #29296e;
   --text-color-light: #29296e;
   --text-color-dark: #ffffff;
   --button-border-color: #ff4f08;
   --button-bg-color: #ff4f08;
+}
+
+body {
   font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, Verdana, sans-serif;
-  background-color: var(--bg-color-dark);
-  color: var(--text-color-dark);
   margin: 0;
   padding: 0;
   display: flex;
@@ -15,6 +16,11 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+}
+
+body.dark-theme {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
 }
 
 body.light-theme {
