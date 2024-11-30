@@ -1,0 +1,1 @@
+{"version":1,"contracts":[{"id":"1r523ua10je9q","package_name":"token_repo","contract_name":"ERC20_Loyalty","module_path":"token_repo::contract::erc20::ERC20_Loyalty","artifacts":{"sierra":"token_repo_ERC20_Loyalty.contract_class.json","casm":"token_repo_ERC20_Loyalty.compiled_contract_class.json"}}]}

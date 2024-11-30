@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Loyalty Token Bot</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="dark-theme">
+    <header>
+      <label class="switch">
+        <input type="checkbox" id="theme-switch">
+        <span class="slider round"></span>
+      </label>
+    </header>
+    <main class="main-display">
+      <img src="assets/logo.png" alt="MMM Loyalty Token Bot" width="200" height="200">
+      <h1>MMM Loyalty Token Bot</h1>
+      <div id="button-container">
+        <button class="main-button" onclick="createToken();">Create Token</button>
+        <button class="main-button" onclick="transferTokens();">Transfer Tokens</button>
+        <form id="create-token-form" class="hidden">
+          <label for="token-name">Name of the token:</label>
+          <input type="text" name="token-name" id="token-name" required>
+          <label for="token-symbol">Symbol of the token:</label>
+          <input type="text" name="token-symbol" id="token-symbol" required>
+          <label for="token-supply">Custom supply (if needed):</label>
+          <input type="text" name="token-supply" id="token-supply">
+          <label for="token-address">Wallet address of the owner:</label>
+          <input type="text" name="token-address" id="token-address" required>
+          <button class="main-button" type="submit" onclick="deployToken();">Deploy Token</button>
+        </form>
+      </div>
+      <div id="success-message" class="hidden">
+        <p>Token created successfully!</p>
+        <button class="main-button" onclick="createNewToken();">Create new token</button>
+        <button class="main-button" onclick="transferTokens();">Transfer tokens</button>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

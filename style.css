@@ -1,0 +1,98 @@
+body {
+  --bg-color-light: #ffffff;
+  --bg-color-dark: #29296e;
+  --text-color-light: #29296e;
+  --text-color-dark: #ffffff;
+  --button-border-color: #ff4f08;
+  --button-bg-color: #ff4f08;
+  font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, Verdana, sans-serif;
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+body.light-theme {
+  background-color: var(--bg-color-light);
+  color: var(--text-color-light);
+}
+
+.main-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.main-button {
+  background-color: transparent;
+  border: 2px solid var(--button-border-color);
+  color: var(--button-border-color);
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  border-radius: 10%;
+}
+
+.main-button:hover {
+  background-color: var(--button-bg-color);
+  color: var(--text-color-dark);
+}
+
+.hidden {
+  display: none;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--button-bg-color);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
