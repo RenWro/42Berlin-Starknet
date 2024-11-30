@@ -17,26 +17,25 @@
     <main class="main-display">
         <img src="assets/logo.png" alt="MMM Loyalty Token Bot" width="200" height="200">
         <h1>MMM Loyalty Token Bot</h1>
-        <!-- Botões principais -->
+        <form id="create-token-form" class="hidden" onsubmit="deployToken(event);">
+            <label for="token-name">Name:</label>
+            <input type="text" name="token-name" id="token-name" placeholder="Name of your token" required>
+            <label for="token-symbol">Symbol:</label>
+            <input type="text" name="token-symbol" id="token-symbol" placeholder="STK (example)" required>
+            <label for="token-supply">Custom supply:</label>
+            <input type="text" name="token-supply" id="token-supply" placeholder="Optional">
+            <label for="token-address">Wallet address:</label>
+            <input type="text" name="token-address" id="token-address" placeholder="012345Abcde" required>
+        </form>
+        <p id="success-message" class="hidden">Token successfully deployed!</p>
         <div id="button-container">
-            <button class="main-button" onclick="createToken();">Create Token</button>
+            <div id="dynamic-button-container">
+                <button class="main-button" id="create-token-button" onclick="createToken();">Create Token</button>
+            </div>
             <button class="main-button" onclick="transferTokens();">Transfer Tokens</button>
         </div>
-        <!-- Formulário de criação de token escondido inicialmente -->
-        <form id="create-token-form" class="hidden" onsubmit="deployToken(event);">
-            <label for="token-name">Name of the token:</label>
-            <input type="text" name="token-name" id="token-name" required>
-            <label for="token-symbol">Symbol of the token:</label>
-            <input type="text" name="token-symbol" id="token-symbol" required>
-            <label for="token-supply">Custom supply (if needed):</label>
-            <input type="text" name="token-supply" id="token-supply">
-            <label for="token-address">Wallet address of the owner:</label>
-            <input type="text" name="token-address" id="token-address" required>
-            <button class="main-button" id="deploy-button" type="submit">Deploy Token</button>
-        </form>
-        <!-- Mensagem de sucesso -->
-        <p id="success-message" class="hidden">Token successfully deployed!</p>
     </main>
     <script src="script.js"></script>
+    <script src=“https://telegram.org/js/telegram-web-app.js”></script>
 </body>
 </html>
