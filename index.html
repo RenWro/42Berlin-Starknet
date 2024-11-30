@@ -17,12 +17,13 @@
     <main class="main-display">
         <img src="assets/logo.png" alt="MMM Loyalty Token Bot" width="200" height="200">
         <h1>MMM Loyalty Token Bot</h1>
+        <!-- Botões principais -->
         <div id="button-container">
             <button class="main-button" onclick="createToken();">Create Token</button>
             <button class="main-button" onclick="transferTokens();">Transfer Tokens</button>
         </div>
-        <!-- Formulário inicialmente oculto -->
-        <form id="create-token-form" class="hidden">
+        <!-- Formulário de criação de token escondido inicialmente -->
+        <form id="create-token-form" class="hidden" onsubmit="deployToken(event);">
             <label for="token-name">Name of the token:</label>
             <input type="text" name="token-name" id="token-name" required>
             <label for="token-symbol">Symbol of the token:</label>
@@ -31,15 +32,11 @@
             <input type="text" name="token-supply" id="token-supply">
             <label for="token-address">Wallet address of the owner:</label>
             <input type="text" name="token-address" id="token-address" required>
-            <button class="main-button" type="submit" onclick="deployToken();">Deploy Token</button>
-            <button class="main-button" type="button" onclick="cancelTokenForm();">Cancel</button>
+            <button class="main-button" id="deploy-button" type="submit">Deploy Token</button>
         </form>
-        <div id="success-message" class="hidden">
-            <p>Token created successfully!</p>
-            <button class="main-button" onclick="createNewToken();">Create new token</button>
-            <button class="main-button" onclick="transferTokens();">Transfer tokens</button>
-        </div>
+        <!-- Mensagem de sucesso -->
+        <p id="success-message" class="hidden">Token successfully deployed!</p>
     </main>
-    <script type="module" src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

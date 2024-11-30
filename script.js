@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Inicializa como tema escuro
   document.body.classList.add('dark-theme');
 
-  // Alterna entre temas ao mudar o checkbox
   document.getElementById('theme-switch').addEventListener('change', (event) => {
       if (event.target.checked) {
           document.body.classList.remove('dark-theme');
@@ -15,39 +13,36 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function createToken() {
-  // Mostra o formulário de criação de token
-  document.getElementById('create-token-form').classList.remove('hidden');
-  // Oculta os botões principais
-  document.getElementById('button-container').classList.add('hidden');
+  const form = document.getElementById('create-token-form');
+  form.classList.remove('hidden'); 
+  form.scrollIntoView({ behavior: 'smooth' });
 }
 
 function transferTokens() {
-  // Lógica para transferir tokens (caso necessário)
   console.log("Transfer Tokens logic here.");
 }
 
-function deployToken() {
-  // Lógica para criar o token
-  showSuccessMessage();
+function deployToken(event) {
+  event.preventDefault();
+
+  const tokenName = document.getElementById('token-name').value;
+  const tokenSymbol = document.getElementById('token-symbol').value;
+  const tokenSupply = document.getElementById('token-supply').value;
+  const tokenAddress = document.getElementById('token-address').value;
+
+  console.log("Token Name:", tokenName);
+  console.log("Token Symbol:", tokenSymbol);
+  console.log("Token Supply:", tokenSupply);
+  console.log("Token Address:", tokenAddress);
+
+  const form = document.getElementById('create-token-form');
+  form.classList.add('hidden');
+
+  const successMessage = document.getElementById('success-message');
+  successMessage.classList.remove('hidden');
+  successMessage.scrollIntoView({ behavior: 'smooth' }); // Rola até a mensagem de sucesso
 }
 
-function showSuccessMessage() {
-  document.getElementById('button-container').classList.add('hidden');
-  document.getElementById('success-message').classList.remove('hidden');
-  setTimeout(() => {
-      document.getElementById('button-container').classList.remove('hidden');
-      document.getElementById('success-message').classList.add('hidden');
-  }, 4000);
-}
-
-function cancelTokenForm() {
-  // Oculta o formulário de criação de token e volta para os botões principais
-  document.getElementById('create-token-form').classList.add('hidden');
-  document.getElementById('button-container').classList.remove('hidden');
-}
-
-function createNewToken() {
-  document.getElementById('create-token-form').classList.add('hidden');
-  document.getElementById('button-container').classList.remove('hidden');
-  document.getElementById('success-message').classList.add('hidden');
-}
+window.createToken = createToken;
+window.transferTokens = transferTokens;
+window.deployToken = deployToken;
